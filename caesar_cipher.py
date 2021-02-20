@@ -3,10 +3,14 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 
 def encode(text, shift):
-    msg = list(text)
+    msg = text
+    msg = list(msg)
     aux = 0
     encoded_msg = []
     for i in msg:
+        if i == " ":
+            encoded_msg.append(i)
+            continue
         aux = alphabet.index(i) + shift
         if aux > 25:
             aux -= 26  # 26 is the total letters of alphabet
@@ -16,10 +20,14 @@ def encode(text, shift):
 
 
 def decode(text, shift):
-    msg = list(text)
+    msg = text
+    msg = list(msg)
     aux = 0
     encoded_msg = []
     for i in msg:
+        if i == " ":
+            encoded_msg.append(i)
+            continue
         aux = alphabet.index(i) - shift
         aux = alphabet[aux]
         encoded_msg.append(aux)
